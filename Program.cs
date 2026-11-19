@@ -281,7 +281,7 @@ static class Shared
 
     static string Describe(Question q, JsonElement answer)
     {
-        // Gemini adds a "confidence" field to every answer. Microsoft doesn't.
+        // "confidence" is optional: Gemini returns it on every answer, Microsoft on choice and score answers.
         var confidence = answer.TryGetProperty("confidence", out var c) && c.ValueKind == JsonValueKind.Number
             ? $", confidence {c.GetDouble():0.00}" : "";
 
