@@ -3,6 +3,7 @@
 ![Microsoft Decision 1.1 vs Gemini Decision 1 for C# Developers](microsoft-decision-1-1-vs-gemini-decision-1-csharp-feature-image.png)
 > A runnable .NET 11 console app that sends the same three classification tasks to **Microsoft-Decision-1.1** (on Microsoft Foundry) and **Gemini Decision 1** (on the Gemini Developer API), then prints a side-by-side table of latency, input tokens and estimated cost.
 
+[![build](https://github.com/taswar/Decision-1-1-vs-Gemini-Decision-1-CSharp-Sample/actions/workflows/dotnet.yml/badge.svg)](https://github.com/taswar/Decision-1-1-vs-Gemini-Decision-1-CSharp-Sample/actions/workflows/dotnet.yml)
 ![.NET 11](https://img.shields.io/badge/.NET-11-512BD4)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
@@ -84,7 +85,7 @@ Both services take a list of named questions and answer in the same shape. The q
 | Model | Your deployment name in `model` | `gemini-decision-1` |
 | Input | `state` text, plus `assets` for images (referenced as `image:<name>`) | `input` list of blocks: text, image, audio, video or document (PDF) |
 | `noul` criteria | `{ "true": ..., "false": ... }` | `{ true_description, false_description }` |
-| Confidence | Not returned | A `confidence` field on every answer |
+| Confidence | A `confidence` field came back on choice and score answers in my run, though the Learn page doesn't document it | A `confidence` field on every answer |
 
 ## Good to know
 
@@ -118,6 +119,7 @@ Decision-1-1-vs-Gemini-Decision-1-CSharp-Sample.csproj   Target framework, NuGet
 Program.cs                                               Cases, the two clients, the comparison table
 checkout-error.png                                       Sample screenshot input
 invoice.pdf                                              Sample PDF input
+.github/workflows/dotnet.yml                             Build workflow (restore and build on every push and pull request)
 CONTRIBUTING.md                                          How to build, validate and submit a change
 LICENSE                                                  MIT license
 ```
